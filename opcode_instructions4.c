@@ -1,63 +1,125 @@
 #include "monty.h"
 
+
+
 /**
- * _rotl - rotates the first element to the bottom and  the second to the top
  *
- * @doubly: head of the linked list
- * @cline: line number;
- * Return: no return
- */
+ *  * _rotl - rotates the first element to the bottom and  the second to the top
+ *
+ *   *
+ *
+ *    * @doubly: head of the linked list
+ *
+ *     * @cline: line number;
+ *
+ *      * Return: no return
+ *
+ *       */
+
 void _rotl(stack_t **doubly, unsigned int cline)
+
 {
-	stack_t *aux1 = NULL;
-	stack_t *aux2 = NULL;
-	(void)cline;
 
-	if (*doubly == NULL)
-		return;
+		stack_t *aux1 = NULL;
 
-	if ((*doubly)->next == NULL)
-		return;
+			stack_t *aux2 = NULL;
 
-	aux1 = (*doubly)->next;
-	aux2 = *doubly;
+				(void)cline;
 
-	for (; aux2->next != NULL; aux2 = aux2->next)
-		;
 
-	aux1->prev = NULL;
-	aux2->next = *doubly;
-	(*doubly)->next = NULL;
-	(*doubly)->prev = aux2;
-	*doubly = aux1;
+
+					if (*doubly == NULL)
+
+								return;
+
+
+
+						if ((*doubly)->next == NULL)
+
+									return;
+
+
+
+							aux1 = (*doubly)->next;
+
+								aux2 = *doubly;
+
+
+
+									for (; aux2->next != NULL; aux2 = aux2->next)
+
+												;
+
+
+
+										aux1->prev = NULL;
+
+											aux2->next = *doubly;
+
+												(*doubly)->next = NULL;
+
+													(*doubly)->prev = aux2;
+
+														*doubly = aux1;
+
 }
 
+
+
 /**
- * _rotr - reverse the stack
  *
- * @doubly: head of the linked list
- * @cline: line number
- * Return: no return
- */
+ *  * _rotr - reverse the stack
+ *
+ *   *
+ *
+ *    * @doubly: head of the linked list
+ *
+ *     * @cline: line number
+ *
+ *      * Return: no return
+ *
+ *       */
+
 void _rotr(stack_t **doubly, unsigned int cline)
+
 {
-	stack_t *aux = NULL;
-	(void)cline;
 
-	if (*doubly == NULL)
-		return;
+		stack_t *aux = NULL;
 
-	if ((*doubly)->next == NULL)
-		return;
+			(void)cline;
 
-	aux = *doubly;
 
-	for (; aux->next != NULL; aux = aux->next)
-		;
 
-	aux->prev->next = NULL;
-	aux->next = *doubly;
-	aux->prev = NULL;
-	(*doubly)->prev = aux;
-	*doubly = aux;
+				if (*doubly == NULL)
+
+							return;
+
+
+
+					if ((*doubly)->next == NULL)
+
+								return;
+
+
+
+						aux = *doubly;
+
+
+
+							for (; aux->next != NULL; aux = aux->next)
+
+										;
+
+
+
+								aux->prev->next = NULL;
+
+									aux->next = *doubly;
+
+										aux->prev = NULL;
+
+											(*doubly)->prev = aux;
+
+												*doubly = aux;
+
 }
